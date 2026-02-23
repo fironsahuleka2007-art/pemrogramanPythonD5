@@ -1,18 +1,22 @@
 def input_barang(barang_list):
+    total = 0
+
     while True:
-        kode = input("Kode barang: ")
-        if not kode:
+        kode = input("Kode barang (enter untuk selesai): ").upper()
+        if kode == "":
             break
 
-        jumlah = int(input("Jumlah barang: "))
-        
-        if kode in barang_list:
-            total = barang_list[kode]["harga"] * jumlah
-            print(f"+ {barang_list[kode]['nama']} x {jumlah} = {total}")
+        if kode not in barang_list:
+            print("Kode barang tidak ditemukan")
+            continue
 
-            hari = input("Hari: ")
-            total = 0
-            total += total
-            return total, hari
-        else:
-            print("Kode barang tidak ditemukan. Silakan coba lagi.")
+        jumlah = int(input("Jumlah barang: "))
+        harga = barang_list[kode]["harga"]
+        nama = barang_list[kode]["nama"]
+
+        subtotal = harga * jumlah
+        total += subtotal
+
+        print(f"+ {nama} x {jumlah} = Rp{subtotal}")
+
+    return total

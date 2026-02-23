@@ -1,43 +1,33 @@
-from loaderJson import dataBarang
-from modulDiskon import hitung_diskon_jumat
-from kembalian import hitung_kembalian
-from totalHarga import total_harga
-from jumlahHarga import Jumlahharga
+from loaderJson import load_barang
 from Inputbarang import input_barang
-
-
+from modulDiskon import hitung_diskon_jumat
+from Kembalian import hitung_kembalian
+from Totalharga import total_harga
 
 def main():
-    print("=====================================")
-    print("======= KASIR TOKO SEDERHANA ========")
-    print("Selamat berbelanja di Toko Sederhana!")
-    print("----------- Februari 2026 -----------")
-    print("=====================================\n\n")
+    print("===== KASIR TOKO SEDERHANA =====")
 
+    dataBarang = load_barang()
 
-nama, harga, jumlah = input_barang(dataBarang)
+    total = input_barang(dataBarang)
+    if total == 0:
+        print("Tidak ada barang dibeli")
+        return
 
-if harga is None:
-    print("Barang tidak ditemukan")
+    hari = input("Hari (contoh: jumat): ")
+    total_akhir, diskon = hitung_diskon_jumat(total, hari)
 
-total = harga * jumlah
-diskon = hitung_diskon_jumat(total)
-total_harga = hitung_total_bayar(total, diskon)
+    print("\nTotal harga :", total)
+    print("Diskon      :", diskon)
+    print("Total bayar :", total_akhir)
 
-print("\nBarang       :", nama)
-print("Total harga  : Rp", int(total))
-print("Diskon       : Rp", int(diskon))
-print("Total bayar  : Rp", int(total_harga))
+    bayar = int(input("Uang dibayarkan: "))
+    kembalian = hitung_kembalian(total_akhir, bayar)
 
-uang = int(input("Uang dibayarkan: "))
-kembalian = hitung_kembalian(total_harga, uang)
-
-if kembalian is None:
-    print("Uang tidak cukup")
-else:
-    print("Kembalian    : Rp", int(kembalian))
-
+    if kembalian is None:
+        print("Uang tidak cukup")
+    else:
+        print("Kembalian :", kembalian)
 
 if __name__ == "__main__":
     main()
-
