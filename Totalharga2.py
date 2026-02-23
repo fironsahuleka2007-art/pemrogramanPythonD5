@@ -4,6 +4,7 @@ def Totalharga2(Totalharga):
     total_akhir = sum(harga)
     
     for hargatotal in Totalharga:
-        total_akhir += subtotal
+        subtotal += total_akhir
     
-    return total_akhir
+    return subtotal
+
