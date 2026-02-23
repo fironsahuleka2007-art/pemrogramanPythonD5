@@ -1,7 +1,7 @@
 import json
 
 def load_barang():
-    with open("barang.json", "r") as f:
+    with open("aset.json", "r") as f:
         data = json.load(f)
 
     barang_flat = {}
