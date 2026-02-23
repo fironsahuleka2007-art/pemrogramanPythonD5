@@ -1,0 +1,16 @@
+{
+"minuman": [
+    {"kode": "M01", "nama": "Kopi", "harga": 5000},
+    {"kode": "M02", "nama": "Teh", "harga": 4000},
+    {"kode": "M03", "nama": "Susu", "harga": 6000},
+    {"kode": "M04", "nama": "Soda", "harga": 7000},
+    {"kode": "M05", "nama": "Air Putih", "harga": 3000}
+],
+"makanan": [
+    {"kode": "F01", "nama": "Roti", "harga": 6000},
+    {"kode": "F02", "nama": "Mie Instan", "harga": 3500},
+    {"kode": "F03", "nama": "Kripik Kentang", "harga": 8000},
+    {"kode": "F04", "nama": "Biskuit", "harga": 7000},
+    {"kode": "F05", "nama": "Coklat", "harga": 10000}
+]
+}
